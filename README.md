@@ -3,12 +3,12 @@ Objective:
 <h6>To generate possible visualization(line,charts, etc..) of hadoop data stored in hbase-0.94.7 using crux-aggregation reporting tool.</h6>
 
 
-Pre-requisite:
+Prerequisite:
 -
 <ol>
 	<li>Install Java</li> 
 	<li>Install pseudo-cluster hadoop. Refer https://docs.google.com/document/d/1v-J19xwJn-Pw9F8OCgLn04dqKwYkGIOxyqRAIGpmHk0/edit?pli=1</li>
-	<li>Install hbase-0.94.7. I prefer to install hbase-0.94.7 because the tar file required to setup crux can be downloaded from https://github.com/mkamithkumar/crux-tar-for-hbase-0.94.7 </li>
+	<li>Install hbase-0.94.7.Refer https://docs.google.com/document/d/1ohAR8BLLX6b4M7-Rw1zCXtj2MFEYzLXilSkiWg-KNLI/edit?pli=1 I prefer to install hbase-0.94.7 because the tar file required to setup crux can be downloaded from https://github.com/mkamithkumar/crux-tar-for-hbase-0.94.7 </li>
 	<li>Install Mysql</li>
 	<li>Install Apache tomcat</li>
 </ol>
@@ -21,7 +21,7 @@ Once you have the prerequisite setup crux:
 			<li> Create database for crux in MySQL</li>
 				<code>mysql>create databse crux;</code>
 				<code>mysql>use crux;</code>
-			<li>Create schema by running crux/db/schema.sql file in MySQL prompt, </li>
+			<li>Create schema by running ${YOUR_CRUX_HOME}/db/schema.sql file in MySQL prompt, </li>
 				<code>mysql>source ${YOUR_CRUX_HOME}/db/schema.sql</code>
 				This creates the schema required for saving the report definitions
 		</ol>
@@ -41,7 +41,8 @@ Once you have the prerequisite setup crux:
   - In terminal change directory to  <code>${YOUR_CRUX_HOME}/</code><br/>
 	<code>hduser@Hadoop:~$ cd ${YOUR_CRUX_HOME}</code><br/>
   - Run the follwing maven command
-	<code>hduser@Hadoop:/usr/local/crux-aggregation$ mvn install:install-file -DgroupId=com.google.code -DartifactId=struts2-fullhibernatecore-plugin -Dversion=2.2.2-GA-Dpackaging=jar -Dfile=${PATH_TO_struts2-fullhibernatecore-plugin-2.2.2-GA.jar}</code></br/>
+	<code>hduser@Hadoop:/usr/local/crux-aggregation$ mvn install:install-file -DgroupId=com.google.code -DartifactId=struts2<code>
+</code>-fullhibernatecore-plugin -Dversion=2.2.2-GA-Dpackaging=jar -Dfile=${PATH_TO_struts2-fullhibernatecore-plugin-2.2.2-GA.jar}</code></br/>
   - The above will add the truts2-fullhibernatecore-plugin-2.2.2-GA.jar file to your maven repository(by default .m2 directory)
   - Now build maven to generate crux.jar and crux.jar file		
 	<code> hduser@Hadoop:/usr/local/crux-aggregation$ mvn install</code><br/>
@@ -54,7 +55,7 @@ Once you have the prerequisite setup crux:
   - Then start hbase shell by entering hbase shell
 	<code>hduser@Hadoop:/usr/local/hbase$ sudo bin/hbase shell</code><br />
 - Start tomcat
-  - Go to ${YOUR_CATALINA_HOME}  then enter bin/startup.sh to start tomcat server
+  - Go to <code>${YOUR_CATALINA_HOME}</code>  then enter bin/startup.sh to start tomcat server
 	<code>hduser@Hadoop:/usr/local/tomcat$ sudo bin/startup.sh</code><br />
   - Now your crux is setup goto  http://localhost:8080/crux and define your connection, mapping and report.
 
