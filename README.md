@@ -72,10 +72,10 @@ Setup Eclipse Project:
 	<li>Copy the <b>BSEStockdata.txt</b> file from the dependency folder to HDFS</li>
 	<code>hadoop dfs -copyFromLocal $HOME/Downloads/BSEStockData.txt hdfs://localhost:54310/user/hduser/projects/input/bsestock</code>
 	<li>Change the input file path in <b>StockDriver.java</b> to your hdfs path of input file</li>
-	<li>Run <b>StockDriver.java<b> as Hadoop Job</li> 
+	<li>Run <b>StockDriver.java</b> as Hadoop Job</li> 
 	<li> Open crux web ui http://localhost:8080/crux</li>
 	<li>Give <em>Connection Name</em> as <b>HbaseConnection</b> and <em>HBase Zookeeper Location</em> as <b>localhost:2181</b></li>
-	<li>Add a mapping by clicking Mapping link with <em>Mapping Name</em> as <b>BSEStockMapping</b>(or your girlfriend's name) </li>
+	<li>Add a mapping by clicking Mapping link with <em>Mapping Name</em> as <b>BSEStockMapping(or your girlfriend's name)</b> </li>
 	<li>Add Row Key Alias
 	
 		<ol>
