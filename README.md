@@ -62,32 +62,35 @@ Setup Crux:
 Setup Eclipse Project:
 -
 <ul>
-	<li>Download bse-stock-hadoop-crux-reporting git hub repository and extract it</li>
-	<li>Open Eclipse and import BSEStock project into workspace</li> 
-	<li> Resolve the build path issues by adding all jar files from ${YOUR_HADOOP_HOME} and ${YOUR_HADOOP_HOME}/lib</li>
-	<li>Add hbase jar from ${YOUR_HBASE_HOME} and zookeeper jar from ${YOUR_HBASE_HOME}/lib to project build path</li>  
+	<li>Download <b>bse-stock-hadoop-crux-reporting</b> git hub repository and extract it</li>
+	<li>Open Eclipse and import <b>BSEStock</b> project into workspace</li> 
+	<li> Resolve the build path issues by adding all jar files from <code>${YOUR_HADOOP_HOME}</code> and <code>${YOUR_HADOOP_HOME}/lib</code></li>
+	<li>Add hbase jar from <code>${YOUR_HBASE_HOME}</code> and zookeeper jar from <code>${YOUR_HBASE_HOME}/lib</code> to project build path</li>  
 	<li>Add the jar files in the dependency folder to your eclipse build path</li>
 	<li>Create a table in hbase</li>
 	<code>hbase(main):006:0>  create 'stockDataComposite','price'</code>
-	<li>Copy the <em>BSEStockdata.txt</em> file from the dependency folder to HDFS</li>
+	<li>Copy the <b>BSEStockdata.txt</b> file from the dependency folder to HDFS</li>
 	<code>hadoop dfs -copyFromLocal $HOME/Downloads/BSEStockData.txt hdfs://localhost:54310/user/hduser/projects/input/bsestock</code>
-	<li>Change the input file path in <em>StockDriver.java</em> to your hdfs path of input file</li>
-	<li>Run <em>StockDriver.java<em> as Hadoop Job</li> 
-	<li> Open crux web ui <em>http://localhost:8080/crux</em></li>
+	<li>Change the input file path in <b>StockDriver.java</b> to your hdfs path of input file</li>
+	<li>Run <b>StockDriver.java<b> as Hadoop Job</li> 
+	<li> Open crux web ui http://localhost:8080/crux</li>
 	<li>Give <em>Connection Name</em> as <b>HbaseConnection</b> and <em>HBase Zookeeper Location</em> as <b>localhost:2181</b></li>
 	<li>Add a mapping by clicking Mapping link with <em>Mapping Name</em> as <b>BSEStockMapping</b>(or your girlfriend's name) </li>
-	<li>Add Row Key Alias</li>
+	<li>Add Row Key Alias
+	
 		<ol>
 			<li><em>Alias:</em> <b>stockId</b><br/><em>Length:</em> <b>6</b><br/><em>Value Type:</em> <b>String</b></li>
 			<li><em>Alias:</em> <b>date</b><br/><em>Length:</em> <b>8</b><br/><em>Value Type:</em> <b>Long</b></li>
 		</ol>
-	<li>Add Column Alias</li>
+	</li>
+	<li>Add Column Alias
 		<ol>
 			<li><em>Column Family:</em> <b>price</b><br/><em>Qualifier:</em> <b>close</b><br/><em>Alias:</em> <b>closePrice</b><br/><em>Value Type:</em> <b>Float</b></li>
 			<li><em>Column Family:</em> <b>price</b><br/><em>Qualifier:</em> <b>open</b><br/><em>Alias:</em> <b>openPrice</b><br/><em>Value Type:</em> <b>Float</b></li>
 			<li><em>Column Family:</em> <b>price</b><br/><em>Qualifier:</em> <b>low</b><br/><em>Alias:</em> <b>lowPrice</b><br/><em>Value Type:</em> <b>Float</b></li>
 			<li><em>Column Family:</em> <b>price</b><br/><em>Qualifier:</em> <b>high</b><br/><em>Alias:</em> <b>highPrice</b><br/><em>Value Type:</em> <b>Float</b></li>
 		</ol>
+	</li>
 	<li>After adding Row Key and Column Aliases save this mapping.</li>
 	<li> Add Report by Clicking Report link  with <em>Report Name</em> as <b>BSEStock report<b>(or your second girlfriend's name) </li>
 	<li> Select the mapping your have saved just now from the Mapping drop down</li>
